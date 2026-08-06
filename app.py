@@ -47,7 +47,7 @@ col_3.metric(label="퇴직률", value=f"{overall_rate}%")
 # 사이드바 필터
 with st.sidebar:
     dept = st.selectbox("부서를 선택하세요.", ["전체", "Sales", "Human Resources", "Research & Development"])
-    age = st.pills("연령대를 선택하세요.", ["20대 이하", "30대", "40대", "50대", "60대 이상"], selection_mode="multi", default=["20대 이하", "30대", "40대", "50대", "60대 이상"])
+    age = st.pills("연령대를 선택하세요.", ["20대 이하", "30대", "40대", "50대", "60대 이상"], selection_mode="multi")
     # st.write(age)
 if dept != '전체':
     department_result = department_result[department_result["부서"] == dept]
