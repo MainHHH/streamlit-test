@@ -44,6 +44,17 @@ col_1.metric(label="직원 수", value=f"{total_employees}명")
 col_2.metric(label="퇴직자 수", value=f"{total_attritions}명")
 col_3.metric(label="퇴직률", value=f"{overall_rate}명")
 
+# 사이드바 필터
+with st.sidebar:
+    dept = st.selectbox("부서를 선택하세요.", ["전체", "Sales", "Human Resources", "Research & Development"])
+    age = st.pills("연령대를 선택하세요.", ["20대 이하", "30대", "40대", "50대", "60대 이상"], selection_mode="multi", default=["20대 이하", "30대", "40대", "50대", "60대 이상"])
+    # st.write(age)
+if dept != '전체':
+    department_result = department_result[department_result["부서"] == dept]
+
+# if age:
+age_result = age_result[age_result['연령대'].isin(age)]
+
 # 그래프 2개
 graph_col1, graph_col2 = st.columns(2)
 
@@ -61,8 +72,3 @@ fig2, ax2 = plt.subplots(figsize=(6, 4))
 sns.barplot(data=age_result, x='연령대', y='퇴직률', ax=ax2)
 ax2.axhline(overall_rate, color='red', linestyle='--')
 graph_col2.pyplot(fig2)
-
-# 사이드바 필터
-with st.sidebar:
-    pass
-
