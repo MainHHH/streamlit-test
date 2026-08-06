@@ -853,7 +853,7 @@ wheels = [
 ]
 
 [[package]]
-name = "new-start"
+name = "new_start"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
