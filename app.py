@@ -73,3 +73,8 @@ fig2, ax2 = plt.subplots(figsize=(6, 4))
 sns.barplot(data=age_result, x='연령대', y='퇴직률', ax=ax2)
 ax2.axhline(overall_rate, color='red', linestyle='--')
 graph_col2.pyplot(fig2)
+
+st.write("부서별 퇴직률")
+st.table(department_result)
+st.write("연령대 별 퇴직률")
+st.table(age_result)
